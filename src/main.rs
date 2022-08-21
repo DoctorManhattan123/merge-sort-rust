@@ -1,6 +1,7 @@
 use std::fmt::Display;
 
 fn main() {
+    // example
     let array = vec![0, 1, 2, 3, -1, -6, -7];
     let sorted_array = merge_sort(&array);
     print_array(&sorted_array);
