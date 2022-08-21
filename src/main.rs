@@ -57,3 +57,28 @@ fn print_array<T: Display>(printable_array: &Vec<T>) {
     }
     println!("]");
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn array_have_same_length() {
+        let array = vec![0, 1, 2, 3, -1, -6, -7];
+        let sorted_array = merge_sort(&array);
+        assert_eq!(array.len(), sorted_array.len())
+    }
+
+    #[test]
+    fn array_is_sorted_1() {
+        let array = vec![0, 1, 2, 3, -1, -6, -7];
+        let sorted_array = merge_sort(&array);
+        assert_eq!(sorted_array, vec![-7, -6, -1, 0, 1, 2, 3])
+    }
+
+    #[test]
+    fn array_is_sorted_2() {
+        let array = vec![0, 0, 0, 1, 0];
+        let sorted_array = merge_sort(&array);
+        assert_eq!(sorted_array, vec![0, 0, 0, 0, 1])
+    }
+}
