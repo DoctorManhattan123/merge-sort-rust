@@ -23,31 +23,31 @@ fn merge<T: Ord + Clone + Copy>(left: &Vec<T>, right: &Vec<T>) -> Vec<T> {
     let mut l = 0 as usize;
     let mut r = 0 as usize;
 
-    let mut tempArray: Vec<T> = Vec::new();
-    while (l < left.len() && r < right.len()) {
+    let mut temp_array: Vec<T> = Vec::new();
+    while l < left.len() && r < right.len() {
         if left.get(l) < right.get(r) {
-            tempArray.push(left.get(l).unwrap().clone());
+            temp_array.push(left.get(l).unwrap().clone());
             l = l + 1;
         } else {
-            tempArray.push(right.get(r).unwrap().clone());
+            temp_array.push(right.get(r).unwrap().clone());
             r = r + 1;
         }
     }
     if l < left.len() {
         while l < left.len() {
-            tempArray.push(left[l]);
+            temp_array.push(left[l]);
             l = l + 1;
         }
     }
 
     if r < right.len() {
         while r < right.len() {
-            tempArray.push(right[r]);
+            temp_array.push(right[r]);
             r = r + 1;
         }
     }
 
-    tempArray
+    temp_array
 }
 
 fn print_array<T: Display>(printable_array: &Vec<T>) {
